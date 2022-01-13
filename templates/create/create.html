@@ -1,0 +1,226 @@
+{%extends "base2.html"%}
+{% load static %}
+{% block title%}
+  Create
+{% endblock title%}
+{%block content%}
+<style>
+.features {
+  position: absolute;
+  width: 900px;
+  height: 500px;
+  right: 100px;
+  top: 100px;
+}
+
+.features {
+  height: 600px;
+  margin: 0;
+  display: grid;
+  grid-template-rows: 500px 100px;
+  grid-template-columns: 1fr 30px 30px 30px 30px 30px 1fr;
+  align-items: center;
+  justify-items: center;
+}
+
+main#carousel {
+  grid-row: 1 / 2;
+  grid-column: 1 / 8;
+  width: 60vw;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  perspective: 600px;
+  --items: 5;
+  --middle: 3;
+  --position: 1;
+  pointer-events: none;
+}
+
+div.item {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  background: rgba(246, 246, 246, 0.27);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(246, 246, 246, 0.29);
+  --r: calc(var(--position) - var(--offset));
+  --abs: max(calc(var(--r) * -1), var(--r));
+  transition: all 0.25s linear;
+  transform: rotateY(calc(-10deg * var(--r))) translateX(calc(-300px * var(--r)));
+  z-index: calc((var(--position) - var(--abs)));
+}
+
+div.item:nth-of-type(1) {
+  --offset: 1;
+}
+
+div.item:nth-of-type(2) {
+  --offset: 2;
+}
+
+div.item:nth-of-type(3) {
+  --offset: 3;
+}
+
+div.item:nth-of-type(4) {
+  --offset: 4;
+}
+
+div.item:nth-of-type(5) {
+  --offset: 5;
+}
+
+input:nth-of-type(1) {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(1):checked~main#carousel {
+  --position: 1;
+}
+
+input:nth-of-type(2) {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(2):checked~main#carousel {
+  --position: 2;
+}
+
+input:nth-of-type(3) {
+  grid-column: 4 /5;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(3):checked~main#carousel {
+  --position: 3;
+}
+
+input:nth-of-type(4) {
+  grid-column: 5 / 6;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(4):checked~main#carousel {
+  --position: 4;
+}
+
+input:nth-of-type(5) {
+  grid-column: 6 / 7;
+  grid-row: 2 / 3;
+}
+
+input:nth-of-type(5):checked~main#carousel {
+  --position: 5;
+}
+</style>
+
+<body>
+    <div>
+        <div style="display: inline-flex;">
+            <div>
+                <div style="margin-top: 15vh;">
+                    <h4>Once converted, your NFT will be displayed in your profile page.</h4>
+                </div>
+                <div class="myImg">
+                   <input type="file" id="myFileInput" >
+                    <input type="button" value="Convert" id="convert">
+                   <br>
+                </div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="features" style="margin-left: 20vh;">
+              <h5 class="deal" style="margin-left: 20vh;">Recent NFTs created!</h5>
+              <input type="radio" name="position" />
+              <input type="radio" name="position" checked />
+              <input type="radio" name="position" />
+
+          <main id="carousel">
+            <div class="item">
+              <div id="hlight" class="card" style="width: 100%;">
+                <img class="card-img-top" src="{%static 'img/ape3.png'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Mutant Ape</h5>
+
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div id="hlight" class="card" style="width: 100%;">
+                <img class="card-img-top" src="{%static 'img/bun2.png'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Rare Bunnies</h5>
+
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div id="hlight" class="card" style="width: 100%;">
+                <img class="card-img-top" src="{%static 'img/yyuyf.png'%}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">DeadFellaz</h5>
+
+                </div>
+              </div>
+            </div>
+          </main>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+   <script>
+
+
+document.querySelector("#myFileInput").addEventListener("onclick", function(){
+
+     //console.log(this.files)
+    const reader = new FileReader();
+
+    reader.addEventListener('load', ()=>{
+    // get recent image value if value is null, then set value of recent-image to [], or else, append file to value of recent image, then set values for recent-image
+        let content = JSON.parse(localStorage.getItem("recent-image"))
+        if (content ==null){
+            content = [reader.result]
+        }
+        else{
+
+            content.push(reader.result)
+
+        }
+
+        localStorage.setItem("recent-image", JSON.stringify(content));
+    });
+    reader.readAsDataURL(this.files[0]);
+});
+
+document.querySelector("#convert").addEventListener("click", function converter(){
+console.log("converting")
+
+var data = {img: "C:\Users\ty\Desktop\HTMLcours\Final Project\nft\create\cat1.png"};
+
+fetch("http://127.0.0.1:5001/convert", {
+  method: "POST",
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(data)
+}).then(res => {
+  console.log("Request complete! response:", res);
+});
+})
+    </script>
+
+
+
+{%endblock content%}

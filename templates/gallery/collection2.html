@@ -1,0 +1,56 @@
+{%extends "base2.html"%}
+{% load static %}
+{% block title%}
+  Gallery
+{% endblock title%}
+{%block content%}
+<body>
+
+
+<!--Content-->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v12.0" nonce="vpGExnOz"></script>
+	<a href="{% url 'gallery'%}"> <i class="fas fa-arrow-left"></i> </a>
+
+	<div class="container" >
+	  <div class="row" style="margin-top: 10vh;">
+		  {% if collection2 %}
+
+			{% for collection in collection2 %}
+				<div class="col-6 col-sm-3">
+					<img src="{{ collection.photo.url }}" alt="" width="221">
+						<div class="text" style="width: 50%">
+							<h5>{{ collection.title }}</h5>
+							<h5>Description:</h5>
+							<h6>{{ collection.description }}</h6>
+						</div>
+				</div>
+			{% endfor %}
+		  {% else %}
+			<div class="col-md-12">
+			  <p> No Collections Available</p>
+			</div>
+		  {% endif %}
+		  </div>
+
+
+		</div>
+	<div class="w3-container">
+	  <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Comment Section</button>
+
+	  <div id="id01" class="w3-modal">
+		<div class="w3-modal-content">
+		  <div class="w3-container">
+			<span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+		   <div  style="background-color: #dbe1e9;">
+			<div id="fb-root"></div>
+				<div class="fb-comments" data-href="http://127.0.0.1:8000/gallerycollection1/" data-width="" data-numposts="5" ></div>
+
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+
+</body>
+{% endblock content%}

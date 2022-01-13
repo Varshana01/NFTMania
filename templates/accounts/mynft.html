@@ -1,0 +1,46 @@
+{%extends "base2.html"%}
+{% load static %}
+{% block title%}
+  About
+{% endblock title%}
+
+{% block content%}
+
+<ul class="nav nav-tabs" style="margin-top: 15vh;">
+  <li class="nav-item">
+    <a class="nav-link" aria-current="page" href="{% url 'profiles'%}" style="color:white; border: 1px solid white;">Personal Details</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'mynft'%}">My NFTs</a>
+  </li>
+</ul>
+
+
+<br>
+
+
+<div id="recentImg" style="display: inline-flex;">
+
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const recentImageDataUrl = JSON.parse(localStorage.getItem("recent-image"));
+  let div = document.getElementById('recentImg')
+
+
+    for (image of recentImageDataUrl){
+        let innerDiv = document.createElement('div')
+
+        let img = document.createElement('img')
+        img.setAttribute("width", 200)
+        img.style.marginLeft = "5vh";
+        img.setAttribute("src", image );
+        innerDiv.append(img)
+        div.append(innerDiv)
+    }
+
+});
+</script>
+
+{% endblock content %}

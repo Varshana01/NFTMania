@@ -1,0 +1,62 @@
+{%extends "base2.html"%}
+{% load static %}
+{% block title%}
+  Gallery
+{% endblock title%}
+{%block content%}
+<body>
+	<div class="englobe" style="display: flex;">
+		<div class="contain">
+			<div class="pic" style="width: 100%; margin-top: 1vh; border-top: 1px solid #0c2436; ">
+				<a href="{%url 'collection1'%}"><img src="{% static 'img/cat1.png'%}" style="border-radius: 50%"></a>
+				<div class="text">
+					<h5>Blazed Cats Collection</h5>
+					<h5>Description:</h5>
+				</div>
+			<div class="description" style="width: 30%">
+				<h6>While the people around them devolve into blithering goons, the Blazed Cats are set up to become the dominant species on the planet with their warm hearts, big brains, and bloodshot eyes.</h6></div>
+			</div>
+			<div class="pic" style="margin-top: 8vh; border-top: 1px solid #0c2436; ">
+				<a href="{%url 'collection2'%}"><img src="{% static 'img/dtyd.jpg'%}" style="border-radius: 50%"></a>
+				<div class="text">
+					<h5>Mutant Ape Collection</h5>
+					<h5>Description:</h5>
+				</div>
+				<div class="description" style="width: 45%">
+					<h6>The MUTANT APE is a collection of up to 20,000 Mutant Apes that can only be created by exposing an existing Bored Ape to a vial of MUTANT SERUM or by minting a Mutant Ape in the public sale.</h6></div>
+				</div>
+			<div class="pic" style="margin-top: 8vh; border-top: 1px solid #0c2436; ">
+				<a href="{%url 'collection3'%}"><img src="{% static 'img/yyuyf.png'%}" style="border-radius: 50%"></a>
+				<div class="text">
+					<h5>DeadFellaz Collection</h5>
+					<h5>Description:</h5>
+				</div>
+				<div class="description" style="width: 45%">
+					<h6> Each unique Deadfella is randomly generated from a combination of over 400 individually drawn traits, including over 50 different outfits. Deadfellaz each have different eyes, noses, mouths, heads and bodies - with no traits explicitly gendered to allow all genders to find representation</h6></div>
+				</div>
+		</div>
+		<div class="stats" style="margin-top: 16vh; ">
+				<div class="chart1" style="width: 100vh; border-top: 1px solid #0c2436; ">
+			  <canvas id="myChart1">
+
+
+			  </canvas>
+			</div>
+		<div class="chart2" style="margin-top: 19.3vh; width: 100vh; border-top: 1px solid #0c2436; ">
+		  <canvas id="myChart2">
+
+
+		  </canvas>
+		</div>
+		<div class="chart3" style="margin-top: 14vh; width: 100vh; border-top: 1px solid #0c2436;  ">
+		  <canvas id="myChart3">
+
+
+		  </canvas>
+		</div>
+
+		</div>
+	</div>
+
+</body>
+{% endblock content%}
