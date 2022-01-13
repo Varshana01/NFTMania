@@ -1,0 +1,130 @@
+:root {
+  --pixel-20-gap: 5px;
+  --color-green: #4895ef;
+}
+
+
+body{
+	background-color: #071521;
+}
+header{
+    background-image: url(https://pineandhicks.com/wp-content/uploads/2020/12/survey-there-is-significant-room-for-the-nft-market-to-grow-despite-widespread-lack-of-knowledge-among-people.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 85vh;
+    padding-top: 25vh;
+}
+
+
+.displayImg{
+    transition: all 1s;
+}
+
+.displayImg:hover{
+    transform: scale(1.1);
+
+}
+
+.bg-color-pink{
+	background-color: pink;
+}
+.bg-success
+
+.nav-padding{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.navbar-brand{
+    margin-right: 10vh !important;
+    margin-left: 25vh !important;
+
+}
+.nav-link.active{
+    margin-left: 7vh;
+    margin-right: 5vh;
+}
+.nav-item.active.is{
+    margin-right: 2vh;
+    margin-left: 2vh;
+}
+.align-items-start{
+    display: flex;
+    flex-direction: column;
+}
+
+.chart{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+h1,h2,h3{
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    color: white;
+}
+h5,h6,p,label,li,h4{
+    color: white;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: #f6f6f6!important;
+}
+.border-top {
+    border-top: 1px solid #5b00c0;
+}
+@media (max-width : 768px){
+	header {
+		background-image: url(https://pineandhicks.com/wp-content/uploads/2020/12/survey-there-is-significant-room-for-the-nft-market-to-grow-despite-widespread-lack-of-knowledge-among-people.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 85vh;
+    padding-top: 25vh;
+	}
+    img{
+        width: 40px;
+    }
+
+}
+@media (max-width : 704px){
+    header {
+        background-image: url(https://pineandhicks.com/wp-content/uploads/2020/12/survey-there-is-significant-room-for-the-nft-market-to-grow-despite-widespread-lack-of-knowledge-among-people.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 25vh;
+    margin-top: 20vh;    
+    }
+
+}
+@media (max-width : 414px){
+    header {
+        background-image: url(https://pineandhicks.com/wp-content/uploads/2020/12/survey-there-is-significant-room-for-the-nft-market-to-grow-despite-widespread-lack-of-knowledge-among-people.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 25vh;
+    margin-top: 20vh;    
+    }
+    img{
+        width: 10px;
+    }
+
+}
+
+@media (max-width : 640px){
+	header {
+		background-image: url(https://pineandhicks.com/wp-content/uploads/2020/12/survey-there-is-significant-room-for-the-nft-market-to-grow-despite-widespread-lack-of-knowledge-among-people.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50vh;
+    padding-top: 35vh;
+	}
+	img{
+		width: 30px;
+	}
+}
